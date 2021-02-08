@@ -1,9 +1,7 @@
 import React from 'react'
 import {
     BrowserRouter as Router,
-    Switch,
-    Route,
-    Redirect
+    Switch
   } from "react-router-dom";
 
 import { LoginPage } from '../components/Pages/Auth/LoginPage';

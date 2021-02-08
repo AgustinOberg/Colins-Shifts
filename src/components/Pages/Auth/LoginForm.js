@@ -1,28 +1,36 @@
-import React from 'react'
-import { Button, TextField } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState } from 'react'
+import {Typography, TextField, Button, makeStyles } from '@material-ui/core'
+
+const useStyles = makeStyles({
+    formItem:{
+        marginTop:"25%",
+        display:"flex",
+        width:"60%",
+        flexDirection:"column",
+        padding:"3%"
+      }
+})
 
 export const LoginForm = () => {
-
-    const useStyles = makeStyles({
-          submit:{
-              marginTop:"15px",
-          },
-          form: {
-              padding: "7%"
-          }
-      });
-    
     const classes = useStyles()
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const handleOnChangeEmail= (user) =>{
+        setEmail(user)
+    }
+    const handleOnChangePassword= (user) =>{
+        setPassword(user)
+    }
     return (
-        <form className={classes.form} noValidate>
-              <TextField variant="outlined" margin="normal" required fullWidth id="email" label="Email Address" name="email" autoComplete="off" autoFocus/>
-              <TextField variant="outlined" margin="normal" required fullWidth name="password" label="Password" type="password" id="password"/>
-     
-              <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit} >
-                Login
-              </Button>
-
-        </form>
+        <form className={classes.formItem} >
+            <Typography variant="h6" color="initial" style={{marginBottom:"2vh"}} align="center">
+            Login Page
+            </Typography>
+            <TextField id="username" autoComplete="off" label="Email" value={email} onChange={(e)=> handleOnChangeEmail(e.target.value)} />
+            <TextField id="password" autoComplete="off" type="password" value={password} label="Password"  onChange={(e)=> handleOnChangePassword(e.target.value)} style={{marginTop:"5vh", marginBottom:"5vh"}} />
+            <Button variant="contained" color="primary" type="submit" >
+            Login
+            </Button>
+      </form>
     )
 }
