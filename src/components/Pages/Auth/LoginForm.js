@@ -6,8 +6,11 @@ export const LoginForm = () => {
 
     const useStyles = makeStyles({
           submit:{
-              marginTop:"15px"
-          }     
+              marginTop:"15px",
+          },
+          form: {
+              padding: "7%"
+          }
       });
     
     const classes = useStyles()
