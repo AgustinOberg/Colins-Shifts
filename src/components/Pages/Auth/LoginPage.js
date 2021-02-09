@@ -5,7 +5,6 @@ import {LoginForm} from './LoginForm'
 
 const useStyles = makeStyles({
   bgImage:{
-    width: "100%",
     backgroundImage: 'url(https://source.unsplash.com/random)',
     backgroundPosition: 'center',
     backgroundSize: 'cover'
