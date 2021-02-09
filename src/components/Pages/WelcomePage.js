@@ -1,19 +1,8 @@
-import { makeStyles, Typography } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 import React from 'react'
-import {NavDrawer} from '../Navigation/NavDrawer'
-const drawerWidth = 250
-const useStyles = makeStyles((theme)=>({
-    content: {
-        padding: theme.spacing(0, 3)
-      },
-      root: {
-        [theme.breakpoints.up("sm")]: { paddingLeft: drawerWidth }
-      },
-      // necessary for content to be below app bar
-      toolbar: theme.mixins.toolbar,
-}))
+
 export const WelcomePage = () => {
-    const classes = useStyles()
+
     return (<>
                 <Typography variant="h2">New ReactJs Features!</Typography>
                 <Typography variant="subtitle1">
