@@ -2,7 +2,6 @@ import { Typography } from '@material-ui/core'
 import React from 'react'
 
 export const WelcomePage = () => {
-
     return (<>
                 <Typography variant="h2">New ReactJs Features!</Typography>
                 <Typography variant="subtitle1">
