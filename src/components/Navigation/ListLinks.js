@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Divider, List, ListItem, ListItemText } from '@material-ui/core'
+import { Divider, List, ListItem, ListItemText, Typography } from '@material-ui/core'
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from 'react-router-dom';
 
@@ -9,7 +9,8 @@ const useStyles = makeStyles((theme) => ({
     drawer: {
         width: drawerWidth
     },
-    toolbar: theme.mixins.toolbar,
+    toolbar: theme.mixins.toolbar
+
 }))
 
 export const ListLinks = () => {
@@ -33,7 +34,14 @@ export const ListLinks = () => {
     ]
     return (
         <>
-            <div className={classes.toolbar} />
+            <div className={classes.toolbar} style={{display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column"}}>
+                <Typography variant="button" color="initial">
+                  ColinShifts  
+                </Typography>
+                <Typography variant="caption" color="initial">
+                  Username  
+                </Typography>
+            </div>
             <Divider />
             <List disablePadding className={classes.drawer}>
                     {routes.map((item)=>(

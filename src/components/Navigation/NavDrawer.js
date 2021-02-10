@@ -30,7 +30,10 @@ export const NavDrawer = () => {
             {<ListLinks/>}
           </Drawer>
         </Hidden>
-        <Navbar/>
+        <Hidden only={['xl','lg', 'md', 'sm']} implementation="css">
+          <Navbar/>
+        </Hidden>
+          
       </div>
     </>
   );
