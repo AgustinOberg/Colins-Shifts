@@ -26,17 +26,13 @@ export const PageBar = ({title,buttonRequired}) => {
                 <Toolbar>
                 <Typography variant="h4" className={classes.title}>
                     {title}
-                </Typography>   {console.log(buttonRequired)}
+                </Typography>
                
             
-                {buttonRequired!==undefined &&(
-                 buttonRequired?(<Button color="secondary" variant="contained">
+                {(
+                 buttonRequired&&(<Button color="secondary" variant="contained">
                     Generate new Shift
-                </Button>) : (
-                    <form style={{display:"flex", flexDirection:"row"}} onSubmit={handleSubmit}>
-                        <TextField  label="Search" variant="outlined" color="secondary" value={inputText} style={{width:"100%"}} onChange={handleInputChange} />
-                    </form>
-                ))}
+                </Button>))}
                 
                 </Toolbar>
       
