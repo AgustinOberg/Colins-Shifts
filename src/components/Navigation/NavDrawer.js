@@ -30,8 +30,8 @@ export const NavDrawer = () => {
             {<ListLinks/>}
           </Drawer>
         </Hidden>
+        <Navbar/>
       </div>
-        <Navbar setOpen={setOpen}/>
     </>
   );
 };
