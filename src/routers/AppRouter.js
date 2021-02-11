@@ -8,8 +8,6 @@ import {
 
 import { LoginPage } from '../components/Pages/Auth/LoginPage';
 import { DashboardRouter } from './DashboardRouter';
-import { PrivateRouter } from './PrivateRouter';
-import { PublicRouter } from './PublicRouter';
 import { NavDrawer } from '../components/Navigation/NavDrawer'
 import { makeStyles } from '@material-ui/core';
 
