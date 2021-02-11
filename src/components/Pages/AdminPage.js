@@ -26,7 +26,7 @@ export const AdminPage = () => {
     
     return (
         <>
-            <PageBar title={"Shifts Page"} buttonRequired={false}/>
+            <PageBar title={"Manage Shifts"} buttonRequired={false}/>
             <Container>
 
             <div style={{ height: "80vh", width: '100%' }}>
