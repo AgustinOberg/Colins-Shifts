@@ -2,6 +2,7 @@ import React from 'react'
 import {
     BrowserRouter as Router,
     Redirect,
+    Route,
     Switch
   } from "react-router-dom";
 
@@ -31,24 +32,18 @@ export const AppRouter = () => {
                     <>
                     <NavDrawer className={classes.root}/>
                     <Switch>
-                        <PrivateRouter path="/" component={ DashboardRouter } isAuthenticated={isAuthenticated}/>
+                        <Route path="/" component={ DashboardRouter }/>
                     </Switch>
                     </>
                     )
-                    
                     :(
                         <Switch>
-                            <PublicRouter path="/login" exact component={ LoginPage } isAuthenticated={isAuthenticated}/>
+                            <Route path="/login" exact component={ LoginPage }/>
                             <Redirect to="/login" />
                         </Switch>
-                        
-                    
                     ) 
                 }
-                <Switch>
-                    
-                <Redirect to="/"/>
-                </Switch>
+             
                
             </div>
         </Router>
