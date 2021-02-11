@@ -26,7 +26,6 @@ export const AdminPage = () => {
     
     return (
         <>
-        {console.log("object")}
             <PageBar title={"Shifts Page"} buttonRequired={false}/>
             <Container>
 
