@@ -21,6 +21,25 @@ const useStyles = makeStyles((theme)=>({
           [theme.breakpoints.up('lg')]: {
            width:"50%"
           },
+    },
+    form: {
+        padding:"20px",
+        display:"flex", 
+        flexDirection:"column", 
+        alignItems: "center",
+        [theme.breakpoints.down('sm')]: {
+            width: "100%",
+          },
+          [theme.breakpoints.up('md')]: {
+            width: "70%"
+          },
+          [theme.breakpoints.up('lg')]: {
+           width:"50%"
+          },
+    },
+    container:{
+        display:"flex", 
+        justifyContent:"center"
     }
 })) 
 
@@ -40,7 +59,7 @@ export const ShiftsPage = () => {
        <PageBar title={"Shifts Page"} />
        <Container style={{display:"flex", justifyContent:"center"}}>
         
-            <Paper component={"form"} style={{padding:"20px",width:"70%", display:"flex", flexDirection:"column", alignItems: "center"}}>
+            <Paper component={"form"} className={classes.form}>
                 <TextField label="Dni" value={dni} type="number" className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setDni(e.target.value))} />
                 <TextField label="Name" value={name} className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setName(e.target.value))} />
                 <Autocomplete id="select-profession" options={professions} className={classes.field} getOptionLabel={(option) => option} style={{marginTop:'3%' }} renderInput={(params) => <TextField {...params} label="Profession"  />}/>
