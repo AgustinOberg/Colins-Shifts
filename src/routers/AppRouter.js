@@ -46,6 +46,7 @@ export const AppRouter = () => {
                     
                     ) 
                 }
+                <Redirect to="/"/>
                
             </div>
         </Router>
