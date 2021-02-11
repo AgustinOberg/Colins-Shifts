@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {Typography, TextField, Button, makeStyles } from '@material-ui/core'
+import {Typography, TextField, Button, makeStyles, Link } from '@material-ui/core'
 
 const useStyles = makeStyles({
     formItem:{
@@ -8,7 +8,11 @@ const useStyles = makeStyles({
         width:"60%",
         flexDirection:"column",
         padding:"3%"
-      }
+      },
+      subtitle: {
+        fontSize: 12,
+        marginTop: "5%"
+      },
 })
 
 export const LoginForm = () => {
@@ -31,6 +35,9 @@ export const LoginForm = () => {
             <Button variant="contained" color="primary" type="submit" >
             Login
             </Button>
+            <Typography className={classes.subtitle} color="textSecondary" gutterBottom>
+            Website created 100% by <Link href="#" variant="" color="secondary">Agustín Aguilera</Link>
+        </Typography>
       </form>
     )
 }

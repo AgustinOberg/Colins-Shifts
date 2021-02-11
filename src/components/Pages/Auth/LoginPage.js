@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Grid from '@material-ui/core/Grid'
-import { makeStyles, Paper} from '@material-ui/core'
+import { makeStyles, Paper, Typography} from '@material-ui/core'
 import {LoginForm} from './LoginForm'
 
 const useStyles = makeStyles({
@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     display:'flex',
     justifyContent:'center'
   },
-  
+
 })
 
 
@@ -31,6 +31,7 @@ export const LoginPage = () => {
 
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={24} square className={classes.formContainer}>                                           {/*  Login  */}
        <LoginForm/>
+      
       </Grid>
     </Grid>
   )
