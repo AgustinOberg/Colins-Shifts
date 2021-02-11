@@ -26,7 +26,6 @@ export const AppRouter = () => {
     const classes = useStyles()
     return (
         <Router>
-            {}
             <div>
                 {isAuthenticated? ( 
                     <>
@@ -46,7 +45,10 @@ export const AppRouter = () => {
                     
                     ) 
                 }
+                <Switch>
+                    
                 <Redirect to="/"/>
+                </Switch>
                
             </div>
         </Router>
