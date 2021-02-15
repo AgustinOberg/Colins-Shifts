@@ -20,18 +20,18 @@ export const NavDrawer = () => {
       <div className={classes.root}>
         {/* Drawer for small devices */}
         <Hidden smUp implementation="css">
-          <Drawer open={open}> {/* onClose={() => setOpen(false)}     TODO when Redux created */}
-            {<ListLinks/>}
+          <Drawer open={open} onClose={() => setOpen(false)} > 
+            <ListLinks setOpen={setOpen}/>
           </Drawer>
         </Hidden>
         {/* Drawer for large devices */}
         <Hidden xsDown implementation="css">
-          <Drawer open={open} variant="permanent" > {/* onClose={() => setOpen(false)}   TODO when Redux created*/}
-            {<ListLinks/>}
+          <Drawer open={open} variant="permanent" onClose={() => setOpen(false)} > 
+            <ListLinks setOpen={setOpen}/>
           </Drawer>
         </Hidden>
         <Hidden only={['xl','lg', 'md', 'sm']} implementation="css">
-          <Navbar/>
+          <Navbar setOpen={setOpen} isOpen = {open}/>
         </Hidden>
           
       </div>

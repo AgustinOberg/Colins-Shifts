@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 
 }))
 
-export const ListLinks = () => {
+export const ListLinks = ({setOpen}) => {
     const classes = useStyles()
     const routes = [{
             route: '/welcome',
@@ -45,7 +45,7 @@ export const ListLinks = () => {
             <Divider />
             <List disablePadding className={classes.drawer}>
                     {routes.map((item)=>(
-                    <ListItem button component={Link} to={item.route} key={item.route}>
+                    <ListItem button component={Link} to={item.route} key={item.route} onClick={() => setOpen(false)}>
                         <ListItemText primary={item.title} />
                     </ListItem>
                     ))}

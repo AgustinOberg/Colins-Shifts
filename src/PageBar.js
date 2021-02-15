@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import {  Button, Hidden, makeStyles, Toolbar, Typography, TextField, FormControl } from '@material-ui/core'
+import {  Button, Hidden, makeStyles, Toolbar, Typography } from '@material-ui/core'
+import { Link } from 'react-router-dom';
 
 const useStyles =  makeStyles((theme) => ({
     menuButton: {
@@ -30,7 +31,7 @@ export const PageBar = ({title,buttonRequired}) => {
                
             
                 {(
-                 buttonRequired&&(<Button color="secondary" variant="contained">
+                 buttonRequired&&(<Button component={Link} to="/shifts" color="secondary" variant="contained">
                     Generate new Shift
                 </Button>))}
                 
