@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme)=>({
 }))  
 
 export const AppRouter = () => {
-    const isAuthenticated = true
+    const isAuthenticated = false
     const classes = useStyles()
     return (
         <Router>
