@@ -36,7 +36,7 @@ export const LoginForm = () => {
             Login
             </Button>
             <Typography className={classes.subtitle} color="textSecondary" gutterBottom>
-            Website created 100% by <Link href="#" variant="" color="secondary">Agustín Aguilera</Link>
+            Website created 100% by <Link href="#"  color="secondary">Agustín Aguilera</Link>
         </Typography>
       </form>
     )
