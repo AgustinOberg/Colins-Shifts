@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const drawerWidth = 250;
 const useStyles = makeStyles((theme) => ({
     drawer: {
-        width: drawerWidth
+        width: drawerWidth,
     },
     toolbar: theme.mixins.toolbar
 
@@ -44,14 +44,17 @@ export const ListLinks = ({setOpen}) => {
             </div>
             <Divider />
             <List disablePadding className={classes.drawer}>
+          
                     {routes.map((item)=>(
-                    <ListItem button component={Link} to={item.route} key={item.route} onClick={() => setOpen(false)}>
+                        <ListItem button component={Link} to={item.route} key={item.route} onClick={() => setOpen(false)}>
                         <ListItemText primary={item.title} />
                     </ListItem>
                     ))}
-                    
-         
-               
+             
+                <Divider/>
+                <ListItem button component={Link} to={"/"} key={"logoutButton"} onClick={() => setOpen(false)}>
+                    <ListItemText primary={"Logout"} />
+                </ListItem>
             </List>
         </>
     )
