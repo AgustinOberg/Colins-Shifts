@@ -3,6 +3,10 @@ import React from 'react'
 import { Divider, List, ListItem, ListItemText, Typography } from '@material-ui/core'
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../actions/auth';
+
+
 
 const drawerWidth = 250;
 const useStyles = makeStyles((theme) => ({
@@ -14,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export const ListLinks = ({setOpen}) => {
+    const dispatch = useDispatch(logout)
     const classes = useStyles()
     const routes = [{
             route: '/welcome',
@@ -52,7 +57,7 @@ export const ListLinks = ({setOpen}) => {
                     ))}
              
                 <Divider/>
-                <ListItem button component={Link} to={"/"} key={"logoutButton"} onClick={() => setOpen(false)}>
+                <ListItem button key={"logoutButton"} onClick={() => dispatch(logout())}>
                     <ListItemText primary={"Logout"} />
                 </ListItem>
             </List>

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import {Typography, TextField, Button, makeStyles, Link } from '@material-ui/core'
+import {useDispatch} from 'react-redux'
+import { login } from '../../../actions/auth'
 
 const useStyles = makeStyles({
     formItem:{
@@ -17,6 +19,7 @@ const useStyles = makeStyles({
 
 export const LoginForm = () => {
     const classes = useStyles()
+    const dispatch = useDispatch(login)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const handleOnChangeEmail= (user) =>{
@@ -25,8 +28,14 @@ export const LoginForm = () => {
     const handleOnChangePassword= (user) =>{
         setPassword(user)
     }
+
+    const handleSubmit = (e) =>{
+        e.preventDefault()
+        dispatch(login(email, password))
+    }
+
     return (
-        <form className={classes.formItem} >
+        <form className={classes.formItem} onSubmit={handleSubmit}>
             <Typography variant="h6" color="initial" style={{marginBottom:"2vh"}} align="center">
             Login Page
             </Typography>

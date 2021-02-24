@@ -1,4 +1,5 @@
 import React from 'react'
+import {useSelector} from 'react-redux'
 import {
     BrowserRouter as Router,
     Redirect,
@@ -21,12 +22,12 @@ const useStyles = makeStyles((theme)=>({
 }))  
 
 export const AppRouter = () => {
-    const isAuthenticated = true
+    const authenticated = useSelector( state => state.auth.authenticated )
     const classes = useStyles()
     return (
         <Router>
             <div>
-                {isAuthenticated? ( 
+                {authenticated? ( 
                     <>
                     <NavDrawer className={classes.root}/>
                     <Switch>
