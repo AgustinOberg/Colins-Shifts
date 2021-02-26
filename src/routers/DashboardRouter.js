@@ -7,6 +7,7 @@ import { TeamPage } from '../components/Pages/TeamPage'
 import { WelcomePage } from '../components/Pages/WelcomePage'
 
 import { makeStyles } from '@material-ui/core'
+import { Register } from '../components/Pages/Register'
 
 const drawerWidth = 250
 const useStyles = makeStyles((theme)=>({
@@ -32,6 +33,7 @@ export const DashboardRouter = () => {
                 <Route path="/team" exact component={ TeamPage }/>
                 <Route path="/shifts" exact component={ ShiftsPage }/>
                 <Route path="/support" exact component={ SupportPage }/>
+                <Route path="/register" exact component={Register} />
                 <Redirect to="/welcome" />
             </Switch>
             </main>

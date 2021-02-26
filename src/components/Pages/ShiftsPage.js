@@ -62,8 +62,8 @@ export const ShiftsPage = () => {
             <Paper component={"form"} className={classes.form}>
                 <TextField label="Dni" value={dni} type="number" className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setDni(e.target.value))} />
                 <TextField label="Name" value={name} className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setName(e.target.value))} />
-                <Autocomplete id="select-profession" options={professions} className={classes.field} getOptionLabel={(option) => option} style={{marginTop:'3%' }} renderInput={(params) => <TextField {...params} label="Profession"  />}/>
-                <DatePicker disablePast emptyLabel="Date" value={selectedDate} onChange={myMoment => setSelectedDate(moment(myMoment).format('L'))} format={'dd/mm/yyyy'} className={classes.field} style={{  marginTop:'6%'}}/>
+                <Autocomplete id="select-profession" disabled={true} options={professions} className={classes.field} getOptionLabel={(option) => option} style={{marginTop:'3%' }} renderInput={(params) => <TextField {...params} label="Profession"  />}/>
+                <DatePicker disablePast emptyLabel="Date" value={selectedDate} disabled={true} onChange={myMoment => setSelectedDate(moment(myMoment).format('L'))} format={'dd/mm/yyyy'} className={classes.field} style={{  marginTop:'6%'}}/>
                 <Autocomplete id="select-hour" options={hourAvailable} className={classes.field} getOptionLabel={(option) => option} style={{marginTop:'3%' }} renderInput={(params) => <TextField {...params} label="Hour"  />}/>
                 <Button color="secondary" variant="contained" className={classes.field} style={{marginTop:'8%',marginBottom:'3%'}}>
                 Take Shift

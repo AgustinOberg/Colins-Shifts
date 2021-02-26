@@ -35,7 +35,12 @@ export const ListLinks = ({setOpen}) => {
         {
             route: '/team',
             title: 'Team'
+        },
+        {
+            route: '/register',
+            title: 'New STAFF'
         }
+
     ]
     return (
         <>

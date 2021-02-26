@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {Typography, TextField, Button, makeStyles, Link } from '@material-ui/core'
 import {useDispatch} from 'react-redux'
 import { login } from '../../../actions/auth'
+import { Alert } from '@material-ui/lab'
 
 const useStyles = makeStyles({
     formItem:{
@@ -18,8 +19,9 @@ const useStyles = makeStyles({
 })
 
 export const LoginForm = () => {
+
     const classes = useStyles()
-    const dispatch = useDispatch(login)
+    const dispatch = useDispatch()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const handleOnChangeEmail= (user) =>{
@@ -46,7 +48,8 @@ export const LoginForm = () => {
             </Button>
             <Typography className={classes.subtitle} color="textSecondary" gutterBottom>
             Website created 100% by <Link href="https://www.linkedin.com/in/aguilera-agustin/"  color="secondary">Agustín Aguilera</Link>
-        </Typography>
+            </Typography>
+            <Alert style={{marginTop:"15%"}} severity="error">This is an error alert — check it out!</Alert>
       </form>
     )
 }

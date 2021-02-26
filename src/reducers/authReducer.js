@@ -1,8 +1,11 @@
 import React from 'react'
 import { types } from '../types/types';
 
+const initialState = {
+    authenticated: false
+}
 
-const authReducer = (state= {authenticated: false}, action) => {
+const authReducer = (state= initialState, action) => {
     switch (action.type) {
         case types.login:
             return {
