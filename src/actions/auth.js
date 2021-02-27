@@ -35,11 +35,34 @@ export const loginError = (message) =>({
     }
 })
 
+export const registerSuccess = () =>({
+    type: types.regSuccess,
+    payload: {
+        type: 'SUCCESS'
+    }
+})
+export const registerError = (message) =>({
+    type: types.regErrorReset,
+    payload: {
+        message: message
+    }
+})
+
+export const registerErrorsReset = () => ({
+    type: types.regReset
+
+})
+
 export const registerWithEmailPasswordNameNum = (email,password, name,phone) =>{
     return (dispatch) => {
         firebase.auth().createUserWithEmailAndPassword(email,password)
         .then(({user}) => {
             user.updateProfile({displayName: name})
+            dispatch(registerSuccess())
         })
+        .catch(err => {
+            dispatch(registerError(err.message))
+        })
+
     }
 }

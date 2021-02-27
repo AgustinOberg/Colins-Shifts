@@ -12,7 +12,8 @@ const authReducer = (state= initialState, action) => {
             return {
                 authenticated: true,
                 uid: action.payload.uid,
-                name: action.payload.name
+                name: action.payload.name,
+                error: null
             }
             
         case types.logout:
@@ -25,7 +26,22 @@ const authReducer = (state= initialState, action) => {
                 error: action.payload.message
             }
         
-    
+        case types.regErrorReset:
+            return {
+                ...state,
+                error: action.payload.message
+            }
+        case types.regSuccess:
+            return {
+                ...state,
+                error: action.payload.type
+            }
+        case types.regReset:
+            return {
+                ...state,
+                error: null
+            }
+
         default:
             return state;
     }

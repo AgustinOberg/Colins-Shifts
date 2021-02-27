@@ -6,7 +6,8 @@ import {useDispatch} from 'react-redux'
 import { dniError, emailError, nameError, phoneError, passwordError, professionError, resetErrors } from '../../actions/registerErrors'
 import {useSelector} from 'react-redux'
 import { registerWithEmailPasswordNameNum } from '../../actions/auth'
-
+import { Alert } from '@material-ui/lab'
+import {registerErrorsReset} from '../../actions/auth'
 
 const useStyles = makeStyles((theme)=>({
     field: {
@@ -67,9 +68,11 @@ const useStyles = makeStyles((theme)=>({
 export const Register = () => {
     useEffect(() => {
         dispatch(resetErrors())
+        dispatch(registerErrorsReset())
     }, [])
    
     const errors = useSelector( state => state.registerErrors )
+    const registerError = useSelector( state => state.auth.error )
     const dispatch = useDispatch()
     const classes = useStyles()
     const [dni, setDni] = useState("")
@@ -81,17 +84,26 @@ export const Register = () => {
 
     const handleRegister= (e) =>{
         e.preventDefault()
+        dispatch(registerErrorsReset())
         if(isFormValid()){
-            console.log("object")
             dispatch(registerWithEmailPasswordNameNum(email,password,name, phone))
+            resetValues()
         }
         
+    }
+
+    const resetValues = () =>{
+            setDni("")
+            setPhone("")
+            setName("")
+            setProfession("")
+            setEmail("")
+            setPassword("")
     }
 
     const isFormValid = () =>{
         dispatch(resetErrors())
         if(dni.trim().length === 0){
-            console.log("entro")
             dispatch(dniError('Invalid DNI'))
             return false
         } else if(name.trim().length === 0){
@@ -120,6 +132,8 @@ export const Register = () => {
              <PageBar title={"Register"} buttonRequired={true} />
              <Container style={{display:"flex", justifyContent:"center"}}>
                 <Paper component={"form"} className={classes.form} variant="outlined" elevation={0} onSubmit={handleRegister}>
+                    {(registerError!==null && registerError!=='SUCCESS') && <Alert severity="error">{registerError}</Alert>}
+                    {registerError==='SUCCESS' && <Alert severity="success">SUCCESS!</Alert>}
                     <TextField label="Dni" value={dni}  helperText={errors.dni} error={errors.dni !== null} type="number" className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setDni(e.target.value))} />
                     <TextField label="Name" value={name} helperText={errors.name} error={errors.name !== null} className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setName(e.target.value))} />
                     <TextField label="Phone" value={phone} helperText={errors.phone} error={errors.phone !== null} className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setPhone(e.target.value))} />
@@ -137,6 +151,7 @@ export const Register = () => {
                     </Button>
                     </div>
 
+                    
                 </Paper>
              </Container>
         </>
