@@ -38,6 +38,27 @@ const useStyles = makeStyles((theme)=>({
     container:{
         display:"flex", 
         justifyContent:"center"
+    },
+    submitButtons:{
+        marginTop:'8%', 
+        marginBottom:'3%', 
+        display:'flex', 
+        [theme.breakpoints.down('xs')]: {
+            justifyContent:'center',
+          },
+        [theme.breakpoints.down('sm')]: {
+            justifyContent:'center',
+            
+          },
+          [theme.breakpoints.up('md')]: {
+            justifyContent:'space-between'
+            
+          },
+          [theme.breakpoints.up('lg')]: {
+            justifyContent:'space-between'
+          },
+        flexWrap:'wrap', 
+        width:'100%'
     }
 })) 
 
@@ -106,12 +127,15 @@ export const Register = () => {
                     <TextField label="Email" value={email} helperText={errors.email} error={errors.email !== null} className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setEmail(e.target.value))} />
                     <TextField label="Password" value={password} type="password" helperText={errors.password} error={errors.password !== null} className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setPassword(e.target.value))} />
                    
-                    <Button color="secondary" variant="contained" type="submit" style={{marginTop:'8%', marginBottom:'3%'}}>
+                    <div className={classes.submitButtons}>
+
+                    <Button color="secondary" variant="contained" type="submit"  style={{marginRight:"5px", marginTop:"5px"}}>
                     New Staff
                     </Button>
-                    <Button color="secondary" variant="contained" style={{marginBottom:'3%'}}>
+                    <Button color="secondary" variant="contained"  style={{marginTop:"5px"}}>
                     Modify Staff
                     </Button>
+                    </div>
 
                 </Paper>
              </Container>
