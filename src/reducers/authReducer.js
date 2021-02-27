@@ -2,7 +2,8 @@ import React from 'react'
 import { types } from '../types/types';
 
 const initialState = {
-    authenticated: false
+    authenticated: false,
+    error: null
 }
 
 const authReducer = (state= initialState, action) => {
@@ -17,6 +18,11 @@ const authReducer = (state= initialState, action) => {
         case types.logout:
             return { 
                 authenticated: false
+            }
+        case types.loginError:
+            return {
+                authenticated: false,
+                error: action.payload.message
             }
     
         default:

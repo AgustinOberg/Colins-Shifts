@@ -22,8 +22,18 @@ export const startLoginWithEmailPassword = (email, password) => {
             dispatch(login(user.uid, user.displayName))
             }
         )
+        .catch(err => { 
+            dispatch(loginError(err.message))
+        })
     }
 }
+
+export const loginError = (message) =>({
+    type : types.loginError,
+    payload: {
+        message: message
+    }
+})
 
 export const registerWithEmailPasswordNameNum = (email,password, name,phone) =>{
     return (dispatch) => {
