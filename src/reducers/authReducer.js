@@ -24,6 +24,7 @@ const authReducer = (state= initialState, action) => {
                 authenticated: false,
                 error: action.payload.message
             }
+        
     
         default:
             return state;

@@ -1,4 +1,4 @@
-import { Typography, Container, Avatar, Grid, makeStyles } from '@material-ui/core'
+import { Typography, Container, Avatar, Grid, makeStyles, Paper } from '@material-ui/core'
 import React from 'react'
 import {useSelector} from 'react-redux'
 import { PageBar } from '../../PageBar'
@@ -36,9 +36,9 @@ export const WelcomePage = () => {
                   </Typography>
                     <Grid container spacing={1} style={{marginTop:"10vh"}}>
 
-                     <Card text={'This is the colins power'} image="/static/images/avatar/1.jpg"/>
-                     <Card text={'This is the colins power'} image="/static/images/avatar/1.jpg"/>
-                     <Card text={'This is the colins power'} image="/static/images/avatar/1.jpg"/>
+                     <Card  text={'This is the colins power'} image="/static/images/avatar/1.jpg"/>
+                     <Card  text={'This is the colins power'} image="/static/images/avatar/1.jpg"/>
+                     <Card  text={'This is the colins power'} image="/static/images/avatar/1.jpg"/>
                      
                     </Grid>     
                 </Container>

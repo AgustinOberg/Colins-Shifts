@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { PageBar } from '../../PageBar'
 import validator from 'validator' 
 import {useDispatch} from 'react-redux'
-import { dniError, emailError, nameError, phoneError, passwordError, professionError } from '../../actions/registerErrors'
+import { dniError, emailError, nameError, phoneError, passwordError, professionError, resetErrors } from '../../actions/registerErrors'
 import {useSelector} from 'react-redux'
 import { registerWithEmailPasswordNameNum } from '../../actions/auth'
 
@@ -45,12 +45,7 @@ const useStyles = makeStyles((theme)=>({
 
 export const Register = () => {
     useEffect(() => {
-        dispatch(dniError(null))
-        dispatch(passwordError(null))
-        dispatch(professionError(null))
-        dispatch(emailError(null))
-        dispatch(nameError(null))
-        dispatch(phoneError(null))
+        dispatch(resetErrors())
     }, [])
    
     const errors = useSelector( state => state.registerErrors )
@@ -73,25 +68,26 @@ export const Register = () => {
     }
 
     const isFormValid = () =>{
+        dispatch(resetErrors())
         if(dni.trim().length === 0){
             console.log("entro")
             dispatch(dniError('Invalid DNI'))
             return false
         } else if(name.trim().length === 0){
-            console.log("Name is required")
+            dispatch(nameError('Invalid Name'))
             return false
         } else if(!validator.isMobilePhone(phone)){
-            console.log("Phone is required")
+            dispatch(phoneError('Invalid Phone'))
             return false
         } else if(profession.trim().length === 0){
-            console.log("Profession is required")
+            dispatch(professionError('Invalid Profession'))
             return false
         } else if(!validator.isEmail(email)){
-            console.log("Email is not valid")
+            dispatch(emailError('Invalid Email'))
             return false
         }
          else if(password.trim().length <= 5){
-            console.log("Password is not valid")
+            dispatch(passwordError('Invalid Password'))
             return false
         }
         else{
@@ -103,12 +99,12 @@ export const Register = () => {
              <PageBar title={"Register"} buttonRequired={true} />
              <Container style={{display:"flex", justifyContent:"center"}}>
                 <Paper component={"form"} className={classes.form} variant="outlined" elevation={0} onSubmit={handleRegister}>
-                    <TextField label="Dni" value={dni}   type="number" className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setDni(e.target.value))} />
-                    <TextField label="Name" value={name} className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setName(e.target.value))} />
-                    <TextField label="Phone" value={phone} className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setPhone(e.target.value))} />
-                    <TextField label="Profession" value={profession} className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setProfession(e.target.value))} />
-                    <TextField label="Email" value={email} className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setEmail(e.target.value))} />
-                    <TextField label="Password" value={password} type="password" className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setPassword(e.target.value))} />
+                    <TextField label="Dni" value={dni}  helperText={errors.dni} error={errors.dni !== null} type="number" className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setDni(e.target.value))} />
+                    <TextField label="Name" value={name} helperText={errors.name} error={errors.name !== null} className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setName(e.target.value))} />
+                    <TextField label="Phone" value={phone} helperText={errors.phone} error={errors.phone !== null} className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setPhone(e.target.value))} />
+                    <TextField label="Profession" value={profession} helperText={errors.profession} error={errors.profession !== null} className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setProfession(e.target.value))} />
+                    <TextField label="Email" value={email} helperText={errors.email} error={errors.email !== null} className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setEmail(e.target.value))} />
+                    <TextField label="Password" value={password} type="password" helperText={errors.password} error={errors.password !== null} className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setPassword(e.target.value))} />
                    
                     <Button color="secondary" variant="contained" type="submit" style={{marginTop:'8%', marginBottom:'3%'}}>
                     New Staff

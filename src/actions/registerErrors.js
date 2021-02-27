@@ -26,4 +26,7 @@ export const phoneError = (message) => ({
     type: types.regInvalidPhone,
     payload : message
 })
+export const resetErrors = () => ({
+    type: types.regReset
+})
 

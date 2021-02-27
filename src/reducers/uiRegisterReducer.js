@@ -43,8 +43,11 @@ const uiRegisterReducer = (state=initialState, action) => {
         case types.regInvalidPw:
             return {
                 ...state,
-                pw: action.payload
+                password: action.payload
             }
+        case types.regReset:
+            return initialState
+            
         default:
             return state;
     }

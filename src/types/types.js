@@ -7,5 +7,6 @@ export const types ={
     regInvalidPw: '[REGISTER] Password',
     regInvalidEmail: '[REGISTER] Email',
     regInvalidPhone: '[REGISTER] Phone',
-    regInvalidProfession: '[REGISTER] Profession'
+    regInvalidProfession: '[REGISTER] Profession',
+    regReset : '[REGISTER] Reset'
 }
