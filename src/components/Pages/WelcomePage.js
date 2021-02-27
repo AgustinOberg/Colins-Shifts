@@ -1,5 +1,6 @@
 import { Typography, Container, Avatar, Grid, makeStyles } from '@material-ui/core'
 import React from 'react'
+import {useSelector} from 'react-redux'
 import { PageBar } from '../../PageBar'
 import {Card} from '../Pages_Fragments/WelcomePage/Card'
 
@@ -23,13 +24,15 @@ const useStyles = makeStyles((theme)=>({
 
 export const WelcomePage = () => {
     const classes = useStyles()
+    const name = useSelector( state => state.auth.name )
+
     return (
             <>
                 <PageBar title={"Welcome Page"} buttonRequired={true}/>
                 <Container  className={classes.container}>
                 <Avatar alt="USERNAME" src="https://cdn3.f-cdn.com/contestentries/1376995/30494909/5b566bc71d308_thumb900.jpg" className={classes.large} />
                   <Typography variant="subtitle1" align="center" color="initial">
-                      Hi <span className={classes.username}>@username</span> !
+                      Hi <span className={classes.username}>{name}</span> !
                   </Typography>
                     <Grid container spacing={1} style={{marginTop:"10vh"}}>
 

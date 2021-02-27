@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {Typography, TextField, Button, makeStyles, Link } from '@material-ui/core'
 import {useDispatch} from 'react-redux'
-import { login } from '../../../actions/auth'
+import { startLoginWithEmailPassword } from '../../../actions/auth'
 import { Alert } from '@material-ui/lab'
 
 const useStyles = makeStyles({
@@ -33,7 +33,7 @@ export const LoginForm = () => {
 
     const handleSubmit = (e) =>{
         e.preventDefault()
-        dispatch(login(email, password))
+        dispatch(startLoginWithEmailPassword(email, password))
     }
 
     return (
