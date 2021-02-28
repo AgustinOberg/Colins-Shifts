@@ -51,6 +51,11 @@ const shiftsReducer = (state=initialState, action) => {
                 ...state,
                 status: action.payload.error
             }
+        case types.shiftsResetStatus:
+            return {
+                ...state,
+                status: null
+            }
             
         
             

@@ -21,6 +21,7 @@ export const types ={
     shiftsAddError: '[SHIFTS] Error',
     shiftsStartLoading: '[SHIFTS] StartLoading',
     shiftsEndLoading: '[SHIFTS] EndLoading',
+    shiftsResetStatus: '[SHIFTS] ResetStatus',
     
     shiftsFormDate : '[SHIFTS FORM] DataPickerChange',
     shiftsFormProfessional : '[SHIFTS FORM] ProfessionalChange',

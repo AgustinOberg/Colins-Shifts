@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react'
 import moment from "moment";
 import { useDispatch } from 'react-redux';
 import { changeDate, changeProfession, changeProfessional } from '../../../actions/shiftsForm';
-import { startTakeShiftWithoutUid } from '../../../actions/shifts';
+import { resetSuccess, startTakeShiftWithoutUid } from '../../../actions/shifts';
 
 const useStyles = makeStyles((theme)=>({
     field: {
@@ -59,40 +59,73 @@ export const ShiftForm = ({professions, hourAvailable, professionals, loading}) 
     const [name, setName] = useState("")
     const classes = useStyles()
 
-    const handleOnSelectProfessional = (value) =>{
+    const handleOnSelectProfessional = (_, value) =>{
         setProfessional(value)
     }
-    const handleOnSelectProfession = (value) =>{
+    const handleOnSelectProfession = (_, value) =>{
         setProfession(value)
+        dispatch(resetSuccess())
     }
-    const handleOnSelectHour = (value) =>{
+    const handleOnSelectHour = (_,value) =>{
         setHour(value)
     }
 
     const handleSubmit = (e) =>{
         e.preventDefault()
-        dispatch(startTakeShiftWithoutUid(dni,name,profession,professional,selectedDate,hour))
-        resetForm()
+        if(dni.length>4 && name.length>2 && hour.length>0){
+            dispatch(startTakeShiftWithoutUid(dni,name,profession,professional,selectedDate,hour))
+            resetForm()
+        }
+        else{
+            console.log("SHIFT ERROR")
+        }
     }
 
     const resetForm = () =>{
         if(!loading){
             setSelectedDate(null)
-            setProfession("")
-            setProfessional("")
-            setHour("")
-            setDni("")
-            setName("")
+            setProfession(null)
+            setProfessional(null)
+            setHour(null)
+            setDni(null)
+            setName(null)
         }
     }
     return (
         <Paper component={"form"} className={classes.form} onSubmit={handleSubmit}>
         <TextField label="Dni" value={dni} type="number" className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setDni(e.target.value))} />
                 <TextField label="Name" value={name} className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setName(e.target.value))} />
-                <Autocomplete onChange={(event, value) => handleOnSelectProfession(value)}  id="select-profession"  options={professions} className={classes.field} getOptionLabel={(option) => option} style={{marginTop:'3%' }} renderInput={(params) => <TextField {...params} label="Profession"  />}/>
-                <Autocomplete disabled={profession === null} onChange={(event, value) => handleOnSelectProfessional(value)}  id="select-professionals" options={professionals} className={classes.field} getOptionLabel={(option) => option} style={{marginTop:'3%' }} renderInput={(params) => <TextField {...params} label="Professionals"  />}/>
+                <Autocomplete 
+                    id="select-profession"  
+                    options={professions} 
+                    className={classes.field} 
+                    getOptionLabel={(option) => option}   
+                    value={profession}
+                    onChange={handleOnSelectProfession}  
+                    style={{marginTop:'3%' }} 
+                    renderInput={(params) => <TextField {...params} label="Profession"  />}/>
+
+                <Autocomplete 
+                    id="select-professionals" 
+                    disabled={professionals === null}
+                    options={professionals} 
+                    getOptionLabel={(option) => option} 
+                    value={professional}
+                    onChange={handleOnSelectProfessional}  
+                    className={classes.field} 
+                    style={{marginTop:'3%' }} 
+                    renderInput={(params) => <TextField {...params} label="Professionals"  />}/>
+
                 <DatePicker disabled={professional === null} disablePast emptyLabel="Date" value={selectedDate} onChange={myMoment => setSelectedDate(moment(myMoment).format('L'))} format={'dd/MM/yyyy'} className={classes.field} style={{  marginTop:'6%'}}/>
-                <Autocomplete onChange={(event, value) => handleOnSelectHour(value)} id="select-hour" disabled={selectedDate === null || professional === null } options={hourAvailable} className={classes.field} getOptionLabel={(option) => option} style={{marginTop:'3%' }} renderInput={(params) => <TextField {...params} label="Hour"  />}/>
+                <Autocomplete 
+                    id="select-hour" 
+                    disabled={selectedDate === null || professional === null } 
+                    options={hourAvailable} 
+                    onChange={handleOnSelectHour}
+                    value={hour} 
+                    className={classes.field} 
+                    style={{marginTop:'3%' }} 
+                    renderInput={(params) => <TextField {...params} label="Hour"  />}/>
                 <Button disabled={loading} color="secondary" type="submit" variant="contained" className={classes.field}  style={{marginTop:'8%',marginBottom:'3%', width:'80%', marginRight:'5px'}}>
                 Take Shift
                 </Button>

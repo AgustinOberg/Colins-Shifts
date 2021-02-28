@@ -10,6 +10,7 @@ import { ShiftForm } from '../Pages_Fragments/ShiftsPage/ShiftForm';
 import { transformProfession } from '../../helpers/professions';
 import { transformProfessionals } from '../../helpers/professionals';
 import { transformHours } from '../../helpers/hours';
+import { Alert } from '@material-ui/lab';
 
 
 export const ShiftsPage = () => {
@@ -17,6 +18,7 @@ export const ShiftsPage = () => {
     const loading = useSelector(state => state.shifts.loading)
     const shifts = useSelector(state => state.shifts)
     const date = useSelector(state => state.shiftsForm.formDate)
+    const status = useSelector(state => state.shifts.status)
     const profession = useSelector(state => state.shiftsForm.formProfession)
     const professional = useSelector(state => state.shiftsForm.formProfessional)
     useEffect(() => {
@@ -27,7 +29,7 @@ export const ShiftsPage = () => {
     const [professions, setProfessions] = useState([])
     const [professionals, setProfessionals] = useState([])
     const [hourAvailable, setHourAvailable] = useState([])
-
+    const actualHour = new Date()
     const transformShiftData = () =>{
         if(!loading){
             setProfessionals(transformProfessionals(shifts, profession))
@@ -44,8 +46,14 @@ export const ShiftsPage = () => {
     return (
         <>
             <MuiPickersUtilsProvider utils={DateFnsUtils} libInstance={moment}>
+                <div style={{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
+
                 <PageBar title={"Shifts Page"} />
-                <Container style={{display:"flex", justifyContent:"center"}}>
+                {status === 'SUCCESS' && 
+                        <Alert >Shift was added successfully! - {actualHour.getHours() + ":" + actualHour.getMinutes() + ":" + actualHour.getSeconds()}</Alert>
+                }
+                </div>
+                <Container style={{display:"flex", alignItems:"center", flexDirection:"column"}}>
                     <ShiftForm professions={professions} hourAvailable={hourAvailable} professionals={professionals} loading={loading}/>
                 </Container>
             </MuiPickersUtilsProvider>

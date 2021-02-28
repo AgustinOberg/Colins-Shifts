@@ -62,6 +62,17 @@ export const startTakeShiftWithUid = (data, uid) => {
         db.collection("shifts").doc(uid).update({
             shifts: firebase.firestore.FieldValue.arrayUnion(data)
         })
+        .then(x =>{
+            dispatch(successMessage())
+        })
         dispatch(endLoading())
     }
 }
+
+export const successMessage = () =>({
+    type: types.shiftsAddSuccess
+})
+
+export const resetSuccess = () =>({
+    type: types.shiftsResetStatus
+})
