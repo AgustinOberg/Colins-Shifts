@@ -41,7 +41,7 @@ const filterHours = (myHours, genericHours) =>{
     return websiteHours
 }
 
-const convertDate = (date) =>{
+export const convertDate = (date) =>{
     const originalDate = date
     if(date !== null){
         const customDate = originalDate.split("/")

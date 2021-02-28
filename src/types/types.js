@@ -17,6 +17,7 @@ export const types ={
     regReset : '[REGISTER] Reset',
 
     shiftsAddData: '[SHIFTS] AddData',
+    shiftsAddSuccess: '[SHIFTS] TakeShiftSuccess',
     shiftsAddError: '[SHIFTS] Error',
     shiftsStartLoading: '[SHIFTS] StartLoading',
     shiftsEndLoading: '[SHIFTS] EndLoading',

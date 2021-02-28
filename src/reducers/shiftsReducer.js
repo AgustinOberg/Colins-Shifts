@@ -8,8 +8,7 @@ const initialState = {
         shifts: []
     }],
     loading: false,
-    error: null,
-    dateSelected : null
+    status: null,
 }
 
 const shiftsReducer = (state=initialState, action) => {
@@ -19,14 +18,14 @@ const shiftsReducer = (state=initialState, action) => {
                 ...state,
                 data: action.payload.data, 
                 loading: false,
-                error: null
+                status: null
             }
     
-        case types.shiftsAddError:
+        case types.shiftsAddstatus:
             return {
                 ...state,
                 loading: false,
-                error: action.payload.error
+                status: action.payload.status
             }
     
         case types.shiftsStartLoading:
@@ -34,17 +33,26 @@ const shiftsReducer = (state=initialState, action) => {
                 ...state, 
                 loading: true
             }
-        case types.shiftsEndLoading:
+        case types.shiftsAddSuccess:
             return {
-                ...state, 
-                loading: false
+                data: [{
+                    id: "",
+                    name: "",
+                    profession: "",
+                    shifts: []
+                }],
+                loading: false,
+                status: 'SUCCESS',
             }
             
-        case types.shiftsDateAdd:
+        
+        case types.shiftsAddError:
             return {
-                ...state, 
-                dateSelected: action.payload.date
+                ...state,
+                status: action.payload.error
             }
+            
+        
             
         default:
             return state;

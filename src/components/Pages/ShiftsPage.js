@@ -46,7 +46,7 @@ export const ShiftsPage = () => {
             <MuiPickersUtilsProvider utils={DateFnsUtils} libInstance={moment}>
                 <PageBar title={"Shifts Page"} />
                 <Container style={{display:"flex", justifyContent:"center"}}>
-                    <ShiftForm professions={professions} hourAvailable={hourAvailable} professionals={professionals}/>
+                    <ShiftForm professions={professions} hourAvailable={hourAvailable} professionals={professionals} loading={loading}/>
                 </Container>
             </MuiPickersUtilsProvider>
         </>
