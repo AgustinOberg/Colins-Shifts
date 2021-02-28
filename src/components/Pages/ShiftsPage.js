@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { PageBar } from '../../PageBar'
+import {useDispatch} from 'react-redux'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField'
@@ -48,10 +49,8 @@ export const ShiftsPage = () => {
     const [name, setName] = useState("")
     const professions = ['Test', 'Test2', 'Test3', 'Test4']
     const hourAvailable = ['myTest', 'myTest2', 'myTest3', 'myTest4']
-    const [selectedDate, setSelectedDate] = React.useState(null);
-    const handleDateChange = (date) => {
-        setSelectedDate(date);
-      };
+    const [selectedDate, setSelectedDate] = useState(null);
+    const dispatch = useDispatch()
 
     const classes = useStyles()
     return (

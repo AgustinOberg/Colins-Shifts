@@ -73,6 +73,7 @@ export const Register = () => {
    
     const errors = useSelector( state => state.registerErrors )
     const registerError = useSelector( state => state.auth.error )
+    const loading = useSelector( state => state.auth.loading )
     const dispatch = useDispatch()
     const classes = useStyles()
     const [dni, setDni] = useState("")
@@ -86,7 +87,7 @@ export const Register = () => {
         e.preventDefault()
         dispatch(registerErrorsReset())
         if(isFormValid()){
-            dispatch(registerWithEmailPasswordNameNum(email,password,name, phone))
+            dispatch(registerWithEmailPasswordNameNum(email,password,name, phone, profession))
             resetValues()
         }
         
@@ -143,7 +144,7 @@ export const Register = () => {
                    
                     <div className={classes.submitButtons}>
 
-                    <Button color="secondary" variant="contained" type="submit"  style={{marginRight:"5px", marginTop:"5px"}}>
+                    <Button color="secondary" variant="contained" disabled={loading} type="submit"  style={{marginRight:"5px", marginTop:"5px"}}>
                     New Staff
                     </Button>
                     <Button color="secondary" variant="contained"  style={{marginTop:"5px"}}>

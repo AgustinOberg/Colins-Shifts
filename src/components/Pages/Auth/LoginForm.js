@@ -23,6 +23,7 @@ export const LoginForm = () => {
 
     const classes = useStyles()
     const error = useSelector( state => state.auth.error )
+    const loading = useSelector( state => state.auth.loading )
     const dispatch = useDispatch()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -45,7 +46,7 @@ export const LoginForm = () => {
             </Typography>
             <TextField id="username" autoComplete="off" label="Email" value={email} onChange={(e)=> handleOnChangeEmail(e.target.value)} />
             <TextField id="password" autoComplete="off" type="password" value={password} label="Password"  onChange={(e)=> handleOnChangePassword(e.target.value)} style={{marginTop:"5vh", marginBottom:"5vh"}} />
-            <Button variant="contained" color="primary" type="submit" >
+            <Button variant="contained" disabled={loading} color="primary" type="submit" >
             Login
             </Button>
             <Typography className={classes.subtitle} color="textSecondary" gutterBottom>

@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import { Divider, List, ListItem, ListItemText, Typography } from '@material-ui/core'
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../actions/auth';
 
 
@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export const ListLinks = ({setOpen}) => {
+    const username = useSelector(state => state.auth.name)
     const dispatch = useDispatch(logout)
     const classes = useStyles()
     const routes = [{
@@ -49,7 +50,7 @@ export const ListLinks = ({setOpen}) => {
                   ColinShifts  
                 </Typography>
                 <Typography variant="caption" color="initial">
-                  Username  
+                  {username}  
                 </Typography>
             </div>
             <Divider />

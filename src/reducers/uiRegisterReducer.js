@@ -1,8 +1,6 @@
-import React from 'react'
 import { types } from '../types/types';
 
-export const initialState = {
-    loading: false,
+const initialState = {
     dni: null,
     name: null,
     profession: null,
