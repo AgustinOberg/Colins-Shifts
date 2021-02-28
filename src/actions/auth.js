@@ -73,7 +73,9 @@ export const firebaseRegister = (uid, name, email, phone, profession) =>{
             profession: profession
         }) 
         db.collection("shifts").doc(uid).set({
-            shifts: []
+            shifts: [],
+            profession: profession,
+            name: name
         })
         
         .then(res => dispatch(endLoading()))

@@ -1,6 +1,7 @@
 import {createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import authReducer from '../reducers/authReducer'
+import shiftsFormReducer from '../reducers/shiftsFormReducer';
 import shiftsReducer from '../reducers/shiftsReducer';
 import uiRegisterReducer from '../reducers/uiRegisterReducer';
 
@@ -12,6 +13,7 @@ const reducers = combineReducers({
     auth: authReducer,
     registerErrors: uiRegisterReducer,
     shifts: shiftsReducer,
+    shiftsForm: shiftsFormReducer
 })
 
 export const store = createStore(

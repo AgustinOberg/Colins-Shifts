@@ -1,5 +1,5 @@
 import { Button, Container, makeStyles, Paper, TextField } from '@material-ui/core'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { PageBar } from '../../PageBar'
 import validator from 'validator' 
 import {useDispatch} from 'react-redux'
@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme)=>({
 export const Register = () => {
     useEffect(() => {
         dispatch(resetErrors())
-        dispatch(registerErrorsReset())
+        dispatch(registerErrorsReset()) 
     }, [])
    
     const errors = useSelector( state => state.registerErrors )

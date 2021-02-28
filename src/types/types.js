@@ -19,5 +19,9 @@ export const types ={
     shiftsAddData: '[SHIFTS] AddData',
     shiftsAddError: '[SHIFTS] Error',
     shiftsStartLoading: '[SHIFTS] StartLoading',
-    shiftsEndLoading: '[SHIFTS] EndLoading'
+    shiftsEndLoading: '[SHIFTS] EndLoading',
+    
+    shiftsFormDate : '[SHIFTS FORM] DataPickerChange',
+    shiftsFormProfessional : '[SHIFTS FORM] ProfessionalChange',
+    shiftsFormProfession : '[SHIFTS FORM] ProfessionChange',
 }

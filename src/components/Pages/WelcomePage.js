@@ -1,6 +1,7 @@
 import { Typography, Container, Avatar, Grid, makeStyles, Paper } from '@material-ui/core'
-import React from 'react'
-import {useSelector} from 'react-redux'
+import React, {useEffect} from 'react'
+import {useSelector, useDispatch} from 'react-redux'
+import { startAddData } from '../../actions/shifts'
 import { PageBar } from '../../PageBar'
 import {Card} from '../Pages_Fragments/WelcomePage/Card'
 
@@ -23,6 +24,10 @@ const useStyles = makeStyles((theme)=>({
 }))
 
 export const WelcomePage = () => {
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(startAddData())    //Add shifts data
+    }, [])
     const classes = useStyles()
     const name = useSelector( state => state.auth.name )
 

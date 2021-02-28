@@ -1,15 +1,22 @@
 import { types } from "../types/types"
 
 const initialState = {
-    data: null,
+    data: [{
+        id: "",
+        name: "",
+        profession: "",
+        shifts: []
+    }],
     loading: false,
-    error: null
+    error: null,
+    dateSelected : null
 }
 
 const shiftsReducer = (state=initialState, action) => {
     switch (action.type) {
         case types.shiftsAddData:
             return {
+                ...state,
                 data: action.payload.data, 
                 loading: false,
                 error: null
@@ -32,7 +39,13 @@ const shiftsReducer = (state=initialState, action) => {
                 ...state, 
                 loading: false
             }
-    
+            
+        case types.shiftsDateAdd:
+            return {
+                ...state, 
+                dateSelected: action.payload.date
+            }
+            
         default:
             return state;
     }
