@@ -75,6 +75,7 @@ export const ShiftForm = ({professions, hourAvailable, professionals, loading}) 
         e.preventDefault()
         if(dni.length>4 && name.length>2 && hour.length>0){
             dispatch(startTakeShiftWithoutUid(dni,name,profession,professional,convertDate(selectedDate) ,hour))
+            resetForm()
            
         }
         else{
@@ -82,6 +83,17 @@ export const ShiftForm = ({professions, hourAvailable, professionals, loading}) 
         }
     }
 
+    const handleAuxReset = () =>{
+        setProfessional(null)
+    }
+    const resetForm = () =>{
+        setSelectedDate(null)
+        setProfession(null)
+        setProfessional(null)
+        setHour(null)
+        setDni("")
+        setName("")
+    }
    
     return (
         <Paper component={"form"} className={classes.form} onSubmit={handleSubmit}>
@@ -95,11 +107,13 @@ export const ShiftForm = ({professions, hourAvailable, professionals, loading}) 
                     value={profession}
                     onChange={handleOnSelectProfession}  
                     style={{marginTop:'3%' }} 
+                    onOpen={handleAuxReset}
+                    onClose={handleAuxReset}
                     renderInput={(params) => <TextField {...params} label="Profession"  />}/>
 
                 <Autocomplete 
                     id="select-professionals" 
-                    disabled={professionals === null}
+            
                     options={professionals} 
                     getOptionLabel={(option) => option} 
                     value={professional}
