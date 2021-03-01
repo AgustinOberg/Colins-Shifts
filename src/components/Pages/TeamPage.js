@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme=>({
             <Grid item lg={6} md={6} sm={12} xl={4}>              
                 <Card className={classes.root} variant="outlined">
 
-                        <TeamCard name="Agustin Aguilera" title="Programador" number="1123890018"/>
+                        <TeamCard name="Agustin Aguilera" title="Programador" number="1123890018" image="https://techcommunity.microsoft.com/t5/image/serverpage/image-id/217078i525F6A9EF292601F/image-size/large?v=1.0&px=999"/>
                 
                 </Card>
             </Grid>
