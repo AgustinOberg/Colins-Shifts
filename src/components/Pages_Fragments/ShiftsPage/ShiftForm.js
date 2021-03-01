@@ -6,6 +6,7 @@ import moment from "moment";
 import { useDispatch } from 'react-redux';
 import { changeDate, changeProfession, changeProfessional } from '../../../actions/shiftsForm';
 import { resetSuccess, startTakeShiftWithoutUid } from '../../../actions/shifts';
+import  { Redirect } from 'react-router-dom'
 
 const useStyles = makeStyles((theme)=>({
     field: {
@@ -52,7 +53,7 @@ export const ShiftForm = ({professions, hourAvailable, professionals, loading}) 
         dispatch(changeDate(selectedDate))
         dispatch(changeProfession(profession))
         dispatch(changeProfessional(professional))
-
+        
     }, [selectedDate, profession , professional])
 
     const [dni, setDni] = useState("")
@@ -74,23 +75,14 @@ export const ShiftForm = ({professions, hourAvailable, professionals, loading}) 
         e.preventDefault()
         if(dni.length>4 && name.length>2 && hour.length>0){
             dispatch(startTakeShiftWithoutUid(dni,name,profession,professional,selectedDate,hour))
-            resetForm()
+           
         }
         else{
             console.log("SHIFT ERROR")
         }
     }
 
-    const resetForm = () =>{
-        if(!loading){
-            setSelectedDate(null)
-            setProfession(null)
-            setProfessional(null)
-            setHour(null)
-            setDni(null)
-            setName(null)
-        }
-    }
+   
     return (
         <Paper component={"form"} className={classes.form} onSubmit={handleSubmit}>
         <TextField label="Dni" value={dni} type="number" className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setDni(e.target.value))} />

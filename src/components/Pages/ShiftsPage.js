@@ -14,7 +14,6 @@ import { Alert } from '@material-ui/lab';
 
 
 export const ShiftsPage = () => {
-    
     const loading = useSelector(state => state.shifts.loading)
     const shifts = useSelector(state => state.shifts)
     const date = useSelector(state => state.shiftsForm.formDate)
