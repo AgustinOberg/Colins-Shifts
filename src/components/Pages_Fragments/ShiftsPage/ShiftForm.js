@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { changeDate, changeProfession, changeProfessional } from '../../../actions/shiftsForm';
 import { resetSuccess, startTakeShiftWithoutUid } from '../../../actions/shifts';
 import  { Redirect } from 'react-router-dom'
+import { convertDate } from '../../../helpers/hours';
 
 const useStyles = makeStyles((theme)=>({
     field: {
@@ -74,7 +75,7 @@ export const ShiftForm = ({professions, hourAvailable, professionals, loading}) 
     const handleSubmit = (e) =>{
         e.preventDefault()
         if(dni.length>4 && name.length>2 && hour.length>0){
-            dispatch(startTakeShiftWithoutUid(dni,name,profession,professional,selectedDate,hour))
+            dispatch(startTakeShiftWithoutUid(dni,name,profession,professional,convertDate(selectedDate) ,hour))
            
         }
         else{
