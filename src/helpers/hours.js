@@ -19,13 +19,12 @@ const setMyHours = (data, date, professional) =>{
         if(element.name === professional)
         {
             element.shifts.forEach(eachShift => {
-                if(eachShift.date !== date){
-                aux.push(eachShift.Hour)
+                if(eachShift.date === date){
+                    aux.push(eachShift.hour)
             }
         });
         }
     });
-
     return aux
 }
 
