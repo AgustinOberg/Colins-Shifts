@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react'
 import moment from "moment";
 import { useDispatch } from 'react-redux';
 import { changeDate, changeProfession, changeProfessional } from '../../../actions/shiftsForm';
-import { resetSuccess, startTakeShiftWithoutUid } from '../../../actions/shifts';
+import { resetSuccess, startAddData, startTakeShiftWithoutUid } from '../../../actions/shifts';
 import  { Redirect } from 'react-router-dom'
 import { convertDate } from '../../../helpers/hours';
 
@@ -44,12 +44,11 @@ const useStyles = makeStyles((theme)=>({
 
 
 export const ShiftForm = ({professions, hourAvailable, professionals, loading}) => {
+    const dispatch = useDispatch()
     const [selectedDate, setSelectedDate] = useState(null);
     const [profession, setProfession] = useState(null);
     const [professional, setProfessional] = useState(null);
     const [hour, setHour] = useState(null)
-    
-    const dispatch = useDispatch()
     useEffect(() => {
         dispatch(changeDate(selectedDate))
         dispatch(changeProfession(profession))

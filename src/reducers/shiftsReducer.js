@@ -35,12 +35,7 @@ const shiftsReducer = (state=initialState, action) => {
             }
         case types.shiftsAddSuccess:
             return {
-                data: [{
-                    id: "",
-                    name: "",
-                    profession: "",
-                    shifts: []
-                }],
+                ...state,
                 loading: false,
                 status: 'SUCCESS',
             }
