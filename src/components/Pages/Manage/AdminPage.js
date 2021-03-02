@@ -31,7 +31,7 @@ export const AdminPage = () => {
             <PageBar title={"Manage Shifts"} buttonRequired={true}/>
             <Container>
 
-              <Paper elevation={3}>
+              <Paper elevation={0}>
             <div style={{ height: "80vh", width: '100%' }}>
 
                 <DataGrid rows={rows} columns={columns} hideFooterSelectedRowCount={true} onCellClick={handleOnClick} />
