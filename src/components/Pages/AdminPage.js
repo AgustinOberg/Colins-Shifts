@@ -2,7 +2,8 @@ import React from 'react'
 import { PageBar } from '../../PageBar'
 import { DataGrid } from '@material-ui/data-grid';
 import { Container, Paper } from '@material-ui/core';
-
+import {useSelector} from 'react-redux'
+import { generateRows } from '../../helpers/rows';
 const columns = [
   { field: 'dni', headerName: 'DNI', width: 100 },
   { field: 'name', headerName: 'NAME', width: 270 },
@@ -11,17 +12,12 @@ const columns = [
   { field: 'hour', headerName: 'HOUR', width: 100 },
   { field: 'professional', headerName: 'PROFESSIONAL', width: 240 },
 ];
-const rows = [
-  { id: 1, dni: '42435321', name: 'Agustin Aguilera', profession: "Nutrición", day: "10/02/2021", hour: "05:31", professional: "Blanco Ruiz" },
-  { id: 2, dni: '52435321', name: 'Blanco Ruiz Florencia', profession: "Nutrición", day: "10/02/2021", hour: "05:31", professional: "Blanco Ruiz" },
-  { id: 3, dni: '12435321', name: 'Melina', profession: "Nutrición", day: "10/02/2021", hour: "05:31", professional: "Blanco Ruiz" },
-  { id: 4, dni: '22435321', name: 'Agustina', profession: "Nutrición", day: "10/02/2021", hour: "05:31", professional: "Blanco Ruiz" },
-  { id: 5, dni: '13435321', name: 'Mariela', profession: "Nutrición", day: "10/02/2021", hour: "05:31", professional: "Blanco Ruiz" },
-  { id: 6, dni: '55435321', name: 'Nicole', profession: "Nutrición", day: "10/02/2021", hour: "05:31", professional: "Blanco Ruiz" },
-];
+
 
 export const AdminPage = () => {
-    
+    const shifts = useSelector(state => state.shifts.data)
+    const rows = generateRows(shifts)
+    console.log("Render")
     return (
         <>
             <PageBar title={"Manage Shifts"} buttonRequired={true}/>

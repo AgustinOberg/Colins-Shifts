@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { PageBar } from '../../PageBar'
-import {useDispatch, useSelector} from 'react-redux'
+import {useSelector} from 'react-redux'
 import Container from '@material-ui/core/Container'
 import moment from "moment";
 import { MuiPickersUtilsProvider } from '@material-ui/pickers'
 import DateFnsUtils from '@date-io/date-fns'
-import { startAddData } from '../../actions/shifts';
 import { ShiftForm } from '../Pages_Fragments/ShiftsPage/ShiftForm';
 import { transformProfession } from '../../helpers/professions';
 import { transformProfessionals } from '../../helpers/professionals';
