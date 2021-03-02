@@ -1,13 +1,12 @@
 import React from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
-import { AdminPage } from '../components/Pages/AdminPage'
-import { ShiftsPage } from '../components/Pages/ShiftsPage'
-import { SupportPage } from '../components/Pages/SupportPage'
-import { TeamPage } from '../components/Pages/TeamPage'
-import { WelcomePage } from '../components/Pages/WelcomePage'
+import { AdminPage } from '../components/Pages/Manage/AdminPage'
+import { ShiftsPage } from '../components/Pages/Shifts/ShiftsPage'
+import { TeamPage } from '../components/Pages/Team/TeamPage'
+import { WelcomePage } from '../components/Pages/Welcome/WelcomePage'
 
 import { makeStyles } from '@material-ui/core'
-import { Register } from '../components/Pages/Register'
+import { Register } from '../components/Pages/Staff/Register'
 
 const drawerWidth = 250
 const useStyles = makeStyles((theme)=>({
@@ -32,7 +31,6 @@ export const DashboardRouter = () => {
                 <Route path="/admin" exact component={ AdminPage }/>
                 <Route path="/team" exact component={ TeamPage }/>
                 <Route path="/shifts" exact component={ ShiftsPage }/>
-                <Route path="/support" exact component={ SupportPage }/>
                 <Route path="/register" exact component={Register} />
                 <Redirect to="/welcome" />
             </Switch>

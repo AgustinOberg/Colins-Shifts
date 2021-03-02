@@ -1,12 +1,11 @@
+import React, { useState, useEffect } from 'react'
 import { Button, makeStyles, Paper, TextField } from '@material-ui/core'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import { DatePicker } from '@material-ui/pickers'
-import React, { useState, useEffect } from 'react'
 import moment from "moment";
 import { useDispatch } from 'react-redux';
 import { changeDate, changeProfession, changeProfessional } from '../../../actions/shiftsForm';
-import { resetSuccess, startAddData, startTakeShiftWithoutUid } from '../../../actions/shifts';
-import  { Redirect } from 'react-router-dom'
+import { resetSuccess, startTakeShiftWithoutUid } from '../../../actions/shifts';
 import { convertDate } from '../../../helpers/hours';
 
 const useStyles = makeStyles((theme)=>({

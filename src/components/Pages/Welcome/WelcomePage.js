@@ -1,9 +1,9 @@
-import { Typography, Container, Avatar, Grid, makeStyles, Paper } from '@material-ui/core'
 import React, {useEffect} from 'react'
+import { Typography, Container, Avatar, Grid, makeStyles } from '@material-ui/core'
 import {useSelector, useDispatch} from 'react-redux'
-import { startAddData } from '../../actions/shifts'
-import { PageBar } from '../../PageBar'
-import {Card} from '../Pages_Fragments/WelcomePage/Card'
+import { startAddData } from '../../../actions/shifts'
+import { PageBar } from '../../Navigation/PageBar'
+import {Card} from '../Welcome/Card'
 
 const useStyles = makeStyles((theme)=>({
     container : {

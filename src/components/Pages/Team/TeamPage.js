@@ -1,8 +1,8 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import { PageBar } from '../../PageBar'
-import {TeamCard} from '../Pages_Fragments/TeamsPage/TeamCard'
+import { PageBar } from '../../Navigation/PageBar'
+import {TeamCard} from '../Team/TeamCard'
 import { Container,  Grid } from '@material-ui/core';
 
 const useStyles = makeStyles(theme=>({

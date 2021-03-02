@@ -1,13 +1,13 @@
 import { Button, Container, makeStyles, Paper, TextField } from '@material-ui/core'
 import React, { useEffect, useMemo, useState } from 'react'
-import { PageBar } from '../../PageBar'
+import { PageBar } from '../../Navigation/PageBar'
 import validator from 'validator' 
 import {useDispatch} from 'react-redux'
-import { dniError, emailError, nameError, phoneError, passwordError, professionError, resetErrors } from '../../actions/registerErrors'
+import { dniError, emailError, nameError, phoneError, passwordError, professionError, resetErrors } from '../../../actions/registerErrors'
 import {useSelector} from 'react-redux'
-import { registerWithEmailPasswordNameNum } from '../../actions/auth'
+import { registerWithEmailPasswordNameNum } from '../../../actions/auth'
 import { Alert } from '@material-ui/lab'
-import {registerErrorsReset} from '../../actions/auth'
+import {registerErrorsReset} from '../../../actions/auth'
 
 const useStyles = makeStyles((theme)=>({
     field: {

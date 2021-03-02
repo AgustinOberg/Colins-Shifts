@@ -4,7 +4,7 @@ import { CardContent } from '@material-ui/core'
 import PhoneAndroidIcon from '@material-ui/icons/PhoneAndroid';
 import Typography from '@material-ui/core/Typography';
 import {  Avatar, List, ListItemIcon, ListItemText } from '@material-ui/core';
-import { ListItemLink} from '../TeamsPage/ListItemLink';
+import { ListItemLink} from '../../Pages/Team/ListItemLink';
 
 const useStyles = makeStyles(theme=>({
     pos: {

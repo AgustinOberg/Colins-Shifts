@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { PageBar } from '../../PageBar'
+import { PageBar } from '../../Navigation/PageBar'
 import { DataGrid } from '@material-ui/data-grid';
-import { Button, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Paper } from '@material-ui/core';
+import { Container, Paper } from '@material-ui/core';
 import {useSelector} from 'react-redux'
-import { generateRows } from '../../helpers/rows';
-import { ManageShift } from '../Pages_Fragments/AdminPage/ManageShift';
+import { generateRows } from '../../../helpers/rows';
+import { ManageShift } from './ManageShift';
+
 const columns = [
   { field: 'dni', headerName: 'DNI', width: 100 },
   { field: 'name', headerName: 'NAME', width: 270 },
@@ -24,9 +25,7 @@ export const AdminPage = () => {
       setData(e.row)
       setOpen(true)
     }
-    const handleOnClose = () =>{
-      setOpen(false)
-    }
+   
     return (
         <>
             <PageBar title={"Manage Shifts"} buttonRequired={true}/>

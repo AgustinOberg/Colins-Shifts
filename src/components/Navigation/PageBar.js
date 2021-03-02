@@ -10,8 +10,6 @@ const useStyles =  makeStyles((theme) => ({
         marginRight: "auto",
       },
 }))
-
-
 export const PageBar = ({title,buttonRequired}) => {
     
     const classes = useStyles()
