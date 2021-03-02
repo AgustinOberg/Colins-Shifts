@@ -1,5 +1,3 @@
-adim@colins.com
-admin1234
 [![Contributors][contributors-shield]][contributors-url]
 [![Stargazers][stars-shield]][stars-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
@@ -42,6 +40,7 @@ The code of this application was made for demonstrate my skills (using as many t
 
 Technologies
 * [React JS](https://es.reactjs.org/)
+* [Create React App](https://es.reactjs.org/docs/create-a-new-react-app.html)
 * [Hooks](https://es.reactjs.org/docs/hooks-intro.html)
 * [Material UI](https://material-ui.com/)
 * [Firebase](https://firebase.google.com/)
