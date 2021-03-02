@@ -98,9 +98,9 @@ If a professional have any shift in X day and Y hour, you can't add a new shift 
 <!-- CONTACT -->
 ## Contact
 
-Me :[Aguilera Agustín](https://www.linkedin.com/in/aguilera-agustin/) - agustin.aguilera424@gmail.com
+Me : [Aguilera Agustín](https://www.linkedin.com/in/aguilera-agustin/)
 
-Project Link: [https://github.com/Aguilera-Agustin/Colins-Shifts](https://github.com/Aguilera-Agustin/Colins-Shifts)
+Project Link : [https://github.com/Aguilera-Agustin/Colins-Shifts](https://github.com/Aguilera-Agustin/Colins-Shifts)
 
 
 
