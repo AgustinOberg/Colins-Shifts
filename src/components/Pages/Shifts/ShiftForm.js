@@ -95,7 +95,7 @@ export const ShiftForm = ({professions, hourAvailable, professionals, loading}) 
     }
    
     return (
-        <Paper component={"form"} className={classes.form} onSubmit={handleSubmit}>
+        <Paper component={"form"} className={classes.form} variant="outlined" onSubmit={handleSubmit} elevation={0} >
         <TextField label="Dni" value={dni} type="number" className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setDni(e.target.value))} />
                 <TextField label="Name" value={name} className={classes.field} style={{  marginTop:'3%' }} onChange={e=>(setName(e.target.value))} />
                 <Autocomplete 
