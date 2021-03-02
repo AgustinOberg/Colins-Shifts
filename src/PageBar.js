@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {  Button, Hidden, makeStyles, Toolbar, Typography } from '@material-ui/core'
 import { Link } from 'react-router-dom';
 
@@ -13,14 +13,9 @@ const useStyles =  makeStyles((theme) => ({
 
 
 export const PageBar = ({title,buttonRequired}) => {
-    const [inputText, setInputText] = useState("")
+    
     const classes = useStyles()
-    const handleInputChange = (e) =>{
-        setInputText(e.target.value)
-    }
-    const handleSubmit = (e) =>{
-        e.preventDefault()
-    } 
+  
     return (
         <Hidden only={'xs'} implementation="css">
    
