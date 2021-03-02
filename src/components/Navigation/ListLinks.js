@@ -1,10 +1,10 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 
 import { Divider, List, ListItem, ListItemText, Typography } from '@material-ui/core'
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../../actions/auth';
+import {startLogout } from '../../actions/auth';
 
 
 
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const ListLinks = ({setOpen}) => {
     const username = useSelector(state => state.auth.name)
-    const dispatch = useDispatch(logout)
+    const dispatch = useDispatch()
     const classes = useStyles()
     const routes = [{
             route: '/welcome',
@@ -63,7 +63,7 @@ export const ListLinks = ({setOpen}) => {
                     ))}
              
                 <Divider/>
-                <ListItem button key={"logoutButton"} onClick={() => dispatch(logout())}>
+                <ListItem button key={"logoutButton"} onClick={() => dispatch(startLogout())}>
                     <ListItemText primary={"Logout"} />
                 </ListItem>
             </List>

@@ -15,6 +15,13 @@ export const login = (uid, name) => (
     }
 )
 
+export const startLogout = () =>{
+    return async (dispatch)=>{
+        await firebase.auth().signOut()
+        dispatch(logout())
+    }
+}
+
 export const startLoading = () =>({
     type: types.startLoading
 })

@@ -17,7 +17,6 @@ const columns = [
 export const AdminPage = () => {
     const shifts = useSelector(state => state.shifts.data)
     const rows = generateRows(shifts)
-    console.log("Render")
     return (
         <>
             <PageBar title={"Manage Shifts"} buttonRequired={true}/>
