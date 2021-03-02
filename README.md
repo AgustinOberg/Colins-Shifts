@@ -1,70 +1,122 @@
-# Getting Started with Create React App
+adim@colins.com
+admin1234
+[![Contributors][contributors-shield]][contributors-url]
+[![Stargazers][stars-shield]][stars-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
 
-### `npm start`
+  <h3 align="center">ColinShifts</h3>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  <p align="center">
+    Shifts web app for "medical" staff
+    <br />
+    <br />
+    <br />
+    <a href="https://colinshifts.netlify.app/">View Demo</a>
+    ·
+    <a href="https://colinshifts.netlify.app/">Report Bug</a>
+    ·
+    <a href="https://colinshifts.netlify.app/">Request Feature</a>
+  </p>
+</p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-### `npm test`
+[![Login Screen Shot][product-screenshot]](https://i.ibb.co/VS2Dk5V/login.png)
+[![Welcome Screen Shot][productb-screenshot]](https://i.ibb.co/dpB4HfT/welcome.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In this web you can take and manage shifts.
 
-### `npm run build`
+Base Technology:
+* React JS
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The code of this application was made for demonstrate my skills (using as many technologies as possible), creating a Web App completely synchronized with a database (firebase)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Built With
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Technologies
+* [React JS](https://es.reactjs.org/)
+* [Hooks](https://es.reactjs.org/docs/hooks-intro.html)
+* [Material UI](https://material-ui.com/)
+* [Firebase](https://firebase.google.com/)
+* [React-Redux](https://react-redux.js.org/)
+* [Redux](https://es.redux.js.org/)
+* [Redux DevTools](https://github.com/zalmoxisus/redux-devtools-extension)
+* [React-Thunk](https://github.com/reduxjs/redux-thunk)
+* [React-Router](https://reactrouter.com/)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<!-- GETTING STARTED -->
+## Getting Started
 
-## Learn More
+You can run this project locally
+```sh
+   npm start
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Prerequisites
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+You need must be installed NPM 
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
 
-### Code Splitting
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Clone the repo
+   ```sh
+   git clone https://github.com/your_username_/Project-Name.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+<!-- USAGE EXAMPLES -->
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+In ColinShifts you can logged with this account:  
+  ```sh
+   email: admin@colins.com
+   password: admin1234
+   ```
+Once you have entered, you can add new staff in the 'New STAFF' section (and create any account), Take a shift and manage all shifts (completing or deleting each shift).
+The shifts can be taken since 8:00 to 20:00, and since Monday to Sunday.
+If a professional have any shift in X day and Y hour, you can't add a new shift with this params.
 
-### Advanced Configuration
+<!-- CONTACT -->
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Me :[Aguilera Agustín](https://www.linkedin.com/in/aguilera-agustin/) - agustin.aguilera424@gmail.com
 
-### Deployment
+Project Link: [https://github.com/Aguilera-Agustin/Colins-Shifts](https://github.com/Aguilera-Agustin/Colins-Shifts)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+
+[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-url]: https://github.com/Aguilera-Agustin/Colins-Shifts/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
+[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-url]: https://github.com/Aguilera-Agustin/Colins-Shifts/stargazers
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/aguilera-agustin/
+[product-screenshot]: https://i.ibb.co/VS2Dk5V/login.png
+[productb-screenshot]: https://i.ibb.co/dpB4HfT/welcome.png
