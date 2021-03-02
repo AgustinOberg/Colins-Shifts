@@ -17,9 +17,9 @@
     <br />
     <a href="https://colinshifts.netlify.app/">View Demo</a>
     ·
-    <a href="https://colinshifts.netlify.app/">Report Bug</a>
+    <a href="https://forms.gle/UZP9RouXW57gFTBB9">Report Bug</a>
     ·
-    <a href="https://colinshifts.netlify.app/">Request Feature</a>
+    <a href="https://forms.gle/SEGsBksC9SsQqEzs8">Request Feature</a>
   </p>
 </p>
 
