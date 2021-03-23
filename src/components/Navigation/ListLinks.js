@@ -5,8 +5,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {startLogout } from '../../actions/auth';
-
-
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import HomeIcon from '@material-ui/icons/Home';
+import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import GroupWorkIcon from '@material-ui/icons/GroupWork';
+import GroupAddIcon from '@material-ui/icons/GroupAdd';
 
 const drawerWidth = 250;
 const useStyles = makeStyles((theme) => ({
@@ -23,23 +27,28 @@ export const ListLinks = ({setOpen}) => {
     const classes = useStyles()
     const routes = [{
             route: '/welcome',
-            title: 'Home'
+            title: 'Home',
+            icon: <HomeIcon/>,
         },
         {
             route: '/shifts',
-            title: 'Shifts'
+            title: 'Shifts',
+            icon: <AssignmentTurnedInIcon/>,
         },
         {
             route: '/admin',
-            title: 'Manage'
+            title: 'Manage',
+            icon: <CalendarTodayIcon/>,
         },
         {
             route: '/team',
-            title: 'Team'
+            title: 'Team',
+            icon: <GroupWorkIcon/>,
         },
         {
             route: '/register',
-            title: 'New STAFF'
+            title: 'New STAFF',
+            icon: <GroupAddIcon/>,
         }
 
     ]
@@ -58,6 +67,9 @@ export const ListLinks = ({setOpen}) => {
           
                     {routes.map((item)=>(
                         <ListItem button component={Link} to={item.route} key={item.route} onClick={() => setOpen(false)}>
+                        <ListItemIcon>
+                            {item.icon}
+                        </ListItemIcon>
                         <ListItemText primary={item.title} />
                     </ListItem>
                     ))}
